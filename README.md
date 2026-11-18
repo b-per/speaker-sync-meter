@@ -4,13 +4,21 @@ Speaker Sync uses one Mac microphone to estimate the residual delay between a Go
 
 On my setup, the measured gap between a Google Nest and a Sonos grouped in Music Assistant went from about **48 ms to 4 ms** after applying the suggested adjustment. Your mileage may vary with speaker placement, room acoustics, and how stable the group’s playback timing is.
 
-## Build and run
+## Download for macOS
+
+Download `Speaker-Sync-Meter-macOS-universal.zip` from the [latest release](https://github.com/b-per/speaker-sync-meter/releases/latest). Unzip it and open **Speaker Sync.app**. The archive includes the calibration WAV and the script for serving it to Music Assistant. The app supports Apple Silicon and Intel Macs with macOS 13 or later.
+
+The app is ad-hoc signed. Apple notarization is unavailable for this build, so macOS may show a Gatekeeper alert on first launch. [Apple’s guide to opening downloaded apps](https://support.apple.com/en-us/102445)
+
+### Build from source
 
 Run `./build.sh` with the Xcode Command Line Tools installed. This creates `build/Speaker Sync.app` and `build/Speaker Sync Calibration.wav`. Open the app in Finder or run `open "build/Speaker Sync.app"`. The app targets macOS 13 or later.
 
+Run `./build.sh --release` to build the universal ZIP under `build/release`.
+
 ## Play the calibration track
 
-If Music Assistant runs on a separate device on the same network, run `python3 serve-track.py` on the Mac. In Music Assistant, open **Tracks → Add via URL** and paste the address the script prints. Leave the script running while you measure. It serves the WAV for one hour by default. Run it again to reuse the same address as long as the Mac’s IP address stays the same. [Music Assistant’s Add via URL instructions](https://www.music-assistant.io/music-providers/builtin/#adding-items)
+If Music Assistant runs on a separate device on the same network, open Terminal in the unzipped folder or the source checkout and run `python3 serve-track.py`. In Music Assistant, open **Tracks → Add via URL** and paste the address the script prints. Leave the script running while you measure. It serves the WAV for one hour by default. Run it again to reuse the same address as long as the Mac’s IP address stays the same. [Music Assistant’s Add via URL instructions](https://www.music-assistant.io/music-providers/builtin/#adding-items)
 
 You can also copy the four-minute WAV to a folder indexed by Music Assistant and open it via **Browse**. [Music Assistant Local Files setup](https://www.music-assistant.io/music-providers/local-files/)
 

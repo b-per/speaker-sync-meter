@@ -9,7 +9,9 @@ import re
 import subprocess
 import time
 
-TRACK = Path(__file__).resolve().parent / "build" / "Speaker Sync Calibration.wav"
+TRACK = Path(__file__).resolve().parent / "Speaker Sync Calibration.wav"
+if not TRACK.is_file():
+    TRACK = TRACK.parent / "build" / TRACK.name
 TRACK_URL = "/speaker-sync.wav"
 BYTE_RANGE = re.compile(r"bytes=(\d*)-(\d*)")
 
