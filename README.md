@@ -1,12 +1,16 @@
 # Speaker Sync Meter
 
+**macOS only.** Speaker Sync Meter runs on Apple Silicon and Intel Macs with macOS 13 or later. Your Music Assistant server can run on a separate device, such as a Raspberry Pi.
+
 Speaker Sync uses one Mac microphone to estimate the residual delay between a Google Nest and a Sonos on AirPlay while they play in the same Music Assistant group. It suggests a new AirPlay **Audio synchronization delay correction** in milliseconds. The app runs locally and holds microphone audio in memory during measurement.
 
 On my setup, the measured gap between a Google Nest and a Sonos grouped in Music Assistant went from about **48 ms to 4 ms** after applying the suggested adjustment. Your mileage may vary with speaker placement, room acoustics, and how stable the group’s playback timing is.
 
+If you’d like a Linux or Windows version, please [open a GitHub issue](https://github.com/b-per/speaker-sync-meter/issues/new). I can look into a command-line version if there’s interest.
+
 ## Download for macOS
 
-Download `Speaker-Sync-Meter-macOS-universal.zip` from the [latest release](https://github.com/b-per/speaker-sync-meter/releases/latest). Unzip it and open **Speaker Sync.app**. The archive includes the calibration WAV and the script for serving it to Music Assistant. The app supports Apple Silicon and Intel Macs with macOS 13 or later.
+Download `Speaker-Sync-Meter-macOS-universal.zip` from the [latest release](https://github.com/b-per/speaker-sync-meter/releases/latest). Unzip it and open **Speaker Sync.app**. The archive includes the calibration WAV and the script for serving it to Music Assistant.
 
 The app is ad-hoc signed. Apple notarization is unavailable for this build, so macOS may show a Gatekeeper alert on first launch. [Apple’s guide to opening downloaded apps](https://support.apple.com/en-us/102445)
 
