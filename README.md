@@ -22,7 +22,15 @@ Run `./build.sh --release` to build the universal ZIP under `build/release`.
 
 ## Play the calibration track
 
-If Music Assistant runs on a separate device on the same network, open Terminal in the unzipped folder or the source checkout and run `python3 serve-track.py`. In Music Assistant, open **Tracks → Add via URL** and paste the address the script prints. Leave the script running while you measure. It serves the WAV for one hour by default. Run it again to reuse the same address as long as the Mac’s IP address stays the same. [Music Assistant’s Add via URL instructions](https://www.music-assistant.io/music-providers/builtin/#adding-items)
+In Music Assistant, open **Tracks → Add via URL** and paste this public URL. Save it as **Speaker Sync Calibration**, then play it on your speaker group. Music Assistant fetches the WAV from GitHub. [Music Assistant’s Add via URL instructions](https://www.music-assistant.io/music-providers/builtin/#adding-items)
+
+```text
+https://github.com/b-per/speaker-sync-meter/releases/download/v1.0.0/speaker-sync-calibration.wav
+```
+
+### Play from your local network
+
+If you prefer to serve the track from your Mac, open Terminal in the unzipped folder or the source checkout and run `python3 serve-track.py`. Use the address it prints in **Tracks → Add via URL**. Leave the script running while you measure. It serves the WAV for one hour by default.
 
 You can also copy the four-minute WAV to a folder indexed by Music Assistant and open it via **Browse**. [Music Assistant Local Files setup](https://www.music-assistant.io/music-providers/local-files/)
 
